@@ -1,46 +1,37 @@
 #include <iostream>
 #include <string>
-#include <deque>
-
 using namespace std;
 
-int main()
-{
-	deque<char> result;
-	string str, bombStr;
-	cin >> str >> bombStr;
-	
-	for (char s : str) {
-		bool check = true;
+string res;
+string temp;
 
-		result.push_back(s);
+int main() {
 
-		// 폭발 문자열을 검색할 조건이 나올 때까지 대기
-		if (result.size() < bombStr.size() || s != result.back()) continue;
+	string str = "", bomb = "";
+	cin >> str >> bomb;
 
-		// 폭발 문자열 검색
-		for (size_t i = 0; i < bombStr.size(); i++) {
-			if (result[result.size() - i - 1] != bombStr[bombStr.size() - i - 1]) {
-				check = false;
-				break;
+	int bomb_size = bomb.size();
+	for (int i = 0; i < str.size(); i++) {//입력문자열을 한번 순회
+		res += str[i];
+		int res_size = res.size(); 
+
+		//가장 최근에 들어간 문자와 폭탄의 마지막 문자랑 같으면
+		if (res[res_size - 1] == bomb[bomb_size - 1]) {
+
+			if (res_size >= bomb_size) {
+				//res에 저장하던 문자열에서 bomb크기만큼 뒤에서 뽑아서 temp저장
+				temp = res.substr(res_size - bomb_size, bomb_size);
+
+				//temp랑 bomb이랑 문자열이 같으면 지우기
+				if (temp == bomb) {
+					res.erase(res_size - bomb_size, bomb_size);
+				}
 			}
 		}
-
-		// 폭발 문자열이면 제거
-		if (check) {
-			for (size_t i = 0; i < bombStr.size(); i++) result.pop_back();
-		}
 	}
 
-	if (result.size() == 0) {
-		cout << "FRULA";
-	}
-	else {
-		for (size_t i = 0; i < result.size(); i++) {
-			cout << result[i];
-		}
-	}
-	cout << "\n";
+	if (res == "") cout << "FRULA";
+	else cout << res;
 
 	return 0;
-}
+} 

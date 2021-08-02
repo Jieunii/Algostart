@@ -7,16 +7,19 @@ using namespace std;
 bool isVPS(string str) {
 	stack<char> s;
 	int i = 0;
+
 	while (i != str.size()) {
 		char ps = str[i];
+		// '('면 스택에 push
 		if (ps == '(') {
 			s.push(ps);
 		}
+		// ')'면
 		else {
-			if (!s.empty()) {
+			if (!s.empty()) { // 스택에 '(' 있다면 pop
 				s.pop();
 			}
-			else {
+			else {						// 스택이 비어있으면 false -> 올바른 괄호 문자열 아님
 				return false;
 			}
 		}
