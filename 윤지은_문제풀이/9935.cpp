@@ -9,7 +9,7 @@ int main()
 	deque<char> result;
 	string str, bombStr;
 	cin >> str >> bombStr;
-	
+
 	for (char s : str) {
 		bool check = true;
 
@@ -19,7 +19,7 @@ int main()
 		if (result.size() < bombStr.size() || s != result.back()) continue;
 
 		// 폭발 문자열 검색
-		for (size_t i = 0; i < bombStr.size(); i++) {
+		for (int i = 0; i < bombStr.size(); i++) {
 			if (result[result.size() - i - 1] != bombStr[bombStr.size() - i - 1]) {
 				check = false;
 				break;
@@ -28,7 +28,7 @@ int main()
 
 		// 폭발 문자열이면 제거
 		if (check) {
-			for (size_t i = 0; i < bombStr.size(); i++) result.pop_back();
+			for (int i = 0; i < bombStr.size(); i++) result.pop_back();
 		}
 	}
 
@@ -36,7 +36,7 @@ int main()
 		cout << "FRULA";
 	}
 	else {
-		for (size_t i = 0; i < result.size(); i++) {
+		for (int i = 0; i < result.size(); i++) {
 			cout << result[i];
 		}
 	}
