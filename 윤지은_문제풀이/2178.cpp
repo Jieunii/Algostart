@@ -33,11 +33,11 @@ void findMiro(int x, int y) {
 					q.push(make_pair(nx, ny));
 					cnt[nx][ny] = cnt[qx][qy] + 1;
 				}
-				
 			}
 		}
 	}
 }
+
 int main(void) {
 	cin >> N >> M;
 
