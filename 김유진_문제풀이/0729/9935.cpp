@@ -11,18 +11,18 @@ int main() {
 	cin >> str >> bomb;
 
 	int bomb_size = bomb.size();
-	for (int i = 0; i < str.size(); i++) {//ÀÔ·Â¹®ÀÚ¿­À» ÇÑ¹ø ¼øÈ¸
+	for (int i = 0; i < str.size(); i++) {//ì…ë ¥ë¬¸ìì—´ì„ í•œë²ˆ ìˆœíšŒ
 		res += str[i];
 		int res_size = res.size(); 
 
-		//°¡Àå ÃÖ±Ù¿¡ µé¾î°£ ¹®ÀÚ¿Í ÆøÅºÀÇ ¸¶Áö¸· ¹®ÀÚ¶û °°À¸¸é
+		//ê°€ì¥ ìµœê·¼ì— ë“¤ì–´ê°„ ë¬¸ìì™€ í­íƒ„ì˜ ë§ˆì§€ë§‰ ë¬¸ìë‘ ê°™ìœ¼ë©´
 		if (res[res_size - 1] == bomb[bomb_size - 1]) {
 
 			if (res_size >= bomb_size) {
-				//res¿¡ ÀúÀåÇÏ´ø ¹®ÀÚ¿­¿¡¼­ bombÅ©±â¸¸Å­ µÚ¿¡¼­ »Ì¾Æ¼­ tempÀúÀå
+				//resì— ì €ì¥í•˜ë˜ ë¬¸ìì—´ì—ì„œ bombí¬ê¸°ë§Œí¼ ë’¤ì—ì„œ ë½‘ì•„ì„œ tempì €ì¥
 				temp = res.substr(res_size - bomb_size, bomb_size);
 
-				//temp¶û bombÀÌ¶û ¹®ÀÚ¿­ÀÌ °°À¸¸é Áö¿ì±â
+				//tempë‘ bombì´ë‘ ë¬¸ìì—´ì´ ê°™ìœ¼ë©´ ì§€ìš°ê¸°
 				if (temp == bomb) {
 					res.erase(res_size - bomb_size, bomb_size);
 				}
