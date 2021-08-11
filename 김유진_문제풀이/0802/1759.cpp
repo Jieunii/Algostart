@@ -5,8 +5,8 @@ int L, C;
 int ch[26];
 char res[16];
 
-// Á¶ÇÕ±¸ÇÏ±â
-// int aeiou : ¸ðÀ½ °³¼ö cnt 
+// ÃÂ¶Ã‡Ã•Â±Â¸Ã‡ÃÂ±Ã¢
+// int aeiou : Â¸Ã°Ã€Â½ Â°Â³Â¼Ã¶ cnt 
 void go(int depth, int index, int aeiou) {
 	if (depth == L) {
 		if (aeiou >= 1 && aeiou <= L - 2) {
