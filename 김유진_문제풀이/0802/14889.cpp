@@ -9,7 +9,7 @@ vector<int> s;
 vector<int> l;
 int res = 21e8;
 
-//½ºÅ¸Æ®ÆÀ°ú ¸µÅ©ÆÀÀÇ ´É·ÂÄ¡ Â÷ÀÌ
+//ìŠ¤íƒ€íŠ¸íŒ€ê³¼ ë§í¬íŒ€ì˜ ëŠ¥ë ¥ì¹˜ ì°¨ì´
 void diff() {
 	int start = 0;
 	int link = 0;
@@ -28,14 +28,14 @@ void diff() {
 
 }
 
-//ÆÀ ¼±ÅÃÇÏ´Â ÇÔ¼ö - Á¶ÇÕ
+//íŒ€ ì„ íƒí•˜ëŠ” í•¨ìˆ˜ - ì¡°í•©
 void select_team(int depth, int index) {
 	if (depth == n / 2) {
 
 		s.clear();
 		l.clear();
 
-		//ÆÀ¿ø º¤ÅÍ¿¡ ÀúÀå
+		//íŒ€ì› ë²¡í„°ì— ì €ì¥
 		for (int i = 1; i <= n; i++) {
 			if (team[i] == 1) s.push_back(i);
 			else l.push_back(i);
@@ -60,7 +60,7 @@ int main() {
 		}
 	}
 
-	//ÆÀÁ¤ÇÏ±â
+	//íŒ€ì •í•˜ê¸°
 	select_team(0, 1);
 
 	cout << res;
