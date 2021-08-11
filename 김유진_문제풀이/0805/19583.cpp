@@ -8,7 +8,7 @@ string e;
 string q;
 string t, name;
 int res;
-map<string, int> part; //state 2: ÀÔÅğÀå ¿Ï·á, 1:ÀÔÀå¸¸¿Ï·á (1/0À¸·Î ÇÏ¸é Æ²·È½À´Ï´Ù ³ª¿È..)
+map<string, int> part; //state 2: ì…í‡´ì¥ ì™„ë£Œ, 1:ì…ì¥ë§Œì™„ë£Œ (1/0ìœ¼ë¡œ í•˜ë©´ í‹€ë ¸ìŠµë‹ˆë‹¤ ë‚˜ì˜´..)
 
 int main() {
 
@@ -32,12 +32,12 @@ int main() {
 		int mm = stoi(t.substr(3, 2));
 		int hhmm = hh * 60 + mm;
 
-		//½ÃÀÛ½Ã°£º¸´Ù ÀÛ°Å³ª °°À¸¸é ÀÔÀå
+		//ì‹œì‘ì‹œê°„ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìœ¼ë©´ ì…ì¥
 		if (0 <= hhmm && hhmm <= shm) {
 			part.insert(make_pair(name, 1));
 		}
 
-		//e½Ã°£°ú q½Ã°£ »çÀÌ¸é ÅğÀå
+		//eì‹œê°„ê³¼ qì‹œê°„ ì‚¬ì´ë©´ í‡´ì¥
 		else if (ehm <= hhmm && hhmm <= qhm) {
 			if (part[name] == 1) {
 				part[name] = 2;
