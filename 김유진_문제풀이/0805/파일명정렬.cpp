@@ -19,14 +19,14 @@ bool isNum(char c) {
 
 bool cmp(info a, info b) {
     if (a.hd != b.hd)
-        //hd ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
+        //hd ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
         return a.hd < b.hd;
     else if(a.num != b.num){
-        //num ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
+        //num ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
         return a.num < b.num;
     }
     else {
-        //idx ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
+        //idx ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
         return a.idx < b.idx;
     }
 
@@ -39,11 +39,11 @@ vector<string> solution(vector<string> files) {
         string tmp, head = "";
         int number = 0;
 
-        //HEAD, NUMBER ÀÚ¸£±â
+        //HEAD, NUMBER ìë¥´ê¸°
         for (int j = 0; j < files[i].size(); j++) {
             if (isNum(files[i][j])) {
                 tmp = files[i].substr(0, j);
-                //¹®ÀÚ¿­À» ¸ğµÎ ´ë¹®ÀÚ·Îº¯°æ
+                //ë¬¸ìì—´ì„ ëª¨ë‘ ëŒ€ë¬¸ìë¡œë³€ê²½
                 for (int z = 0; z < tmp.size(); z++) {
                     head += toupper(tmp[z]);
                 }
