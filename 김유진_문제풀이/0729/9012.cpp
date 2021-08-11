@@ -9,22 +9,22 @@ int main() {
 	int t = 0;
 	cin >> t;
 	for (int i = 0; i < t; i++) {
-		//½ºÅÃ ÃÊ±âÈ­
+		//ìŠ¤íƒ ì´ˆê¸°í™”
 		while(!s.empty()) {
 			s.pop();
 		}
 
-		//¹®ÀÚ¿­ ÀÔ·Â
+		//ë¬¸ìžì—´ ìž…ë ¥
 		string str = "";
 		cin >> str;
 
 
-		//¹®ÀÚ¿­ ±æÀÌ¸¸Å­ ¹Ýº¹
+		//ë¬¸ìžì—´ ê¸¸ì´ë§Œí¼ ë°˜ë³µ
 		for (int i = 0; i < str.size(); i++) {
 			char now = str[i];
 
-			//½ºÅÃÀÇ °¡Àå ÃÖ±Ù °ªÀÌ ÇöÀç °ª°ú ¸Â¹°¸®¸é ½ºÅÃ ÃÖ±Ù °ª pop
-			//±× ¿Ü¿¡´Â ÇöÀç °ª ½ºÅÃ¿¡ push
+			//ìŠ¤íƒì˜ ê°€ìž¥ ìµœê·¼ ê°’ì´ í˜„ìž¬ ê°’ê³¼ ë§žë¬¼ë¦¬ë©´ ìŠ¤íƒ ìµœê·¼ ê°’ pop
+			//ê·¸ ì™¸ì—ëŠ” í˜„ìž¬ ê°’ ìŠ¤íƒì— push
 			if (s.empty()) s.push(now);
 			else if (s.top() == '(' && now == ')') s.pop();
 			else s.push(now);
