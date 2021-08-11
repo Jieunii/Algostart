@@ -2,7 +2,7 @@
 #include <queue>
 using namespace std;
 
-int park_empty[101]; //0:ºñ¾îÀÖÀ½, 1~N: Â÷ÀÖÀ½
+int park_empty[101]; //0:ë¹„ì–´ìˆìŒ, 1~N: ì°¨ìˆìŒ
 int park_fee[101];
 int car_weight[2001];
 int n, m;
@@ -25,20 +25,20 @@ int main() {
 		int car = 0;
 
 		int check = 0;
-		//ÁÖÂ÷Àå ºóÀÚ¸® check
+		//ì£¼ì°¨ì¥ ë¹ˆìë¦¬ check
 		for (int i = 1; i <= n; i++) {
 			if (park_empty[i] == 0) {
 				check = 1;
 			}
 		}
 
-		//wait¿¡ Â÷°¡ÀÖ°í, ºóÀÚ¸®°¡ »ı±â¸é
+		//waitì— ì°¨ê°€ìˆê³ , ë¹ˆìë¦¬ê°€ ìƒê¸°ë©´
 		if (check == 1 && !wait.empty()) {
 			car = wait.front();
 			wait.pop();
 		}
 
-		//±× ¿Ü
+		//ê·¸ ì™¸
 		else {
 			car = q.front();
 			q.pop();
@@ -46,7 +46,7 @@ int main() {
 
 		int flag = 0;
 
-		if (car > 0) { //ÁÖÂ÷ÀåÀ¸·Î µé¾î¿È
+		if (car > 0) { //ì£¼ì°¨ì¥ìœ¼ë¡œ ë“¤ì–´ì˜´
 			for (int i = 1; i <= n; i++) {
 				if (park_empty[i] == 0) {
 					park_empty[i] = car;
@@ -57,7 +57,7 @@ int main() {
 			}
 			if(flag == 0) wait.push(car);
 		}
-		else { //ÁÖÂ÷Àå¿¡¼­ ³ª°¨
+		else { //ì£¼ì°¨ì¥ì—ì„œ ë‚˜ê°
 			car = abs(car);
 			for (int i = 1; i <= n; i++) {
 				if (park_empty[i] == car) {
