@@ -52,7 +52,7 @@ void win(int y, int x, char s) {
 			while (1) {
 				nx -= dx[i];
 				ny -= dy[i];
-				if (nx < 0 || ny < 0 || nx >= 17 || ny >= 17 || map[ny][nx] == '_' || map[ny][nx] == bande) break;
+				if (nx < 0 || ny < 0 || nx >= 18 || ny >= 18 || map[ny][nx] == '_' || map[ny][nx] == bande) break;
 				cnt++;
 			}
       // win
