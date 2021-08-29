@@ -3,83 +3,64 @@
 #include <string>
 #include <queue>
 #include<algorithm>
+#include <unordered_map>
 using namespace std;
 
 int main()
 {
 	vector<string> record = { "Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan" };
-
 	vector<string> answer;
 
-	vector<string> id;
-	vector<string> nickname;
-	vector<pair<string,int>>chk;
-	for (int i = 0; i < record.size(); i++) {
+	unordered_map<string, string> enter;
+	unordered_map<string, string>leave;
+	unordered_map<string, string> nick;
+	for (int i = 0; i < record.size(); i++)
+	{
 		int id_idx = record[i].find(" ");
-	
+		int nick_idx = record[i].find(" ", id_idx + 1);
 		string oper = record[i].substr(0, id_idx);
-		
+
 		if (oper == "Enter") {
+			string id = record[i].substr(id_idx + 1, nick_idx - id_idx - 1);
 			int nick_idx = record[i].find(" ", id_idx + 1);
-			string nick = record[i].substr(nick_idx + 1, record[i].length() - nick_idx + 1);
-			string id_ = record[i].substr(id_idx + 1, 7);
-			if (id.size() == 0) {
-				id.push_back(id_);
-				nickname.push_back(nick);
+			string nickname = record[i].substr(nick_idx + 1, record[i].length() - nick_idx);
+			nick[id] = nickname;
+			enter[id] = nick[id] + "ë‹˜ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.";
+			if (leave.size() != 0) {
+				leave[id] = nick[id] + "ë‹˜ì´ ë‚˜ê°”ìŠµë‹ˆë‹¤.";
 			}
-			else {
-				int flag = 0;
-				for (int j = 0; j < id.size(); j++) {
-					if (id[j] == id_) {
-						nickname[j] = nick;
-						flag = 1;
-						break;
-					}
-				}
-				if (!flag) {
-					id.push_back(id_);
-					nickname.push_back(nick);
-				}
-			}
-			chk.push_back({ id_,1 });
 		}
 		if (oper == "Leave") {
-			string id_ = record[i].substr(id_idx + 1, 7);
-			string nick;
-			for (int j = 0; j < id.size(); j++) {
-				if (id[j] == id_) {
-					nick = nickname[j];
-				}
-			}
-			chk.push_back({ id_,2 });
+			string id = record[i].substr(id_idx + 1, record[i].length() - id_idx);
+			leave[id] = nick[id] + "ë‹˜ì´ ë‚˜ê°”ìŠµë‹ˆë‹¤.";
 		}
-
 		if (oper == "Change") {
+			string id = record[i].substr(id_idx + 1, nick_idx - id_idx - 1);
 			int nick_idx = record[i].find(" ", id_idx + 1);
-			string nick = record[i].substr(nick_idx + 1, record[i].length() - nick_idx + 1);
-			string id_ = record[i].substr(id_idx + 1, 7);
-			for (int j = 0; j < id.size(); j++) {
-				if (id[j] == id_) {
-					nickname[j] = nick;
-				}
-			}
+			string nickname = record[i].substr(nick_idx + 1, record[i].length() - nick_idx);
+			nick[id] = nickname;
+			enter[id] = nickname + "ë‹˜ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.";
+			leave[id] = nickname + "ë‹˜ì´ ë‚˜ê°”ìŠµë‹ˆë‹¤.";
 		}
 	}
 
-	for (int i = 0; i < chk.size(); i++) {
-		for (int j = 0; j < id.size(); j++) {
-			if (chk[i].first == id[j]) {
-				if (chk[i].second == 1) {
-					answer.push_back(nickname[j] + "´ÔÀÌ µé¾î¿Ô½À´Ï´Ù.");
-				}
-				else if (chk[i].second == 2) {
-					answer.push_back(nickname[j] + "´ÔÀÌ ³ª°¡¼Ì½À´Ï´Ù.");
-				}
-			}
+	for (int i = 0; i < record.size(); i++)
+	{
+		int id_idx = record[i].find(" ");
+		int nick_idx = record[i].find(" ", id_idx + 1);
+		string oper = record[i].substr(0, id_idx);
+		string id = record[i].substr(id_idx + 1, nick_idx - id_idx - 1);
+
+		if (oper == "Enter") {
+			answer.push_back(enter[id]);
+		}
+		if (oper == "Leave") {
+			answer.push_back(leave[id]);
 		}
 	}
 
 
+	
 	return 0;
 
 }
