@@ -1,5 +1,5 @@
-# SSAFY_Algorithm
+# Algostart
 
-안녕하세요 알고리즘 스터디 B 그룹입니다
+알고리즘 스터디 그룹입니다
 
 *
