@@ -56,12 +56,6 @@ int main() {
 			ans.push_back(played[sorted[i]][0].idx);
 		}
 	}
-	
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
-	}
-	cout << endl;
-
 
 	return 0;
 }
