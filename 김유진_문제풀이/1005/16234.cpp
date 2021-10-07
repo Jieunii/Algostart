@@ -1,4 +1,4 @@
-//ÀÎ±¸ÀÌµ¿
+//ì¸êµ¬ì´ë™
 
 #include <iostream>
 #include <queue>
@@ -15,7 +15,7 @@ struct info {
 };
 
 int bfs() {
-	//¿¬ÇÕÃ£±â
+	//ì—°í•©ì°¾ê¸°
 	int visited[51][51] = { 0, };
 	int is_moved = 0;
 
@@ -27,7 +27,7 @@ int bfs() {
 
 			if (!visited[i][j]) {
 				queue<info> q;
-				c.push({ i, j }); //ÀÌ°Å¸¦ ¾îµğ´Ù°¡ µÑ²«Áö?
+				c.push({ i, j });
 				q.push({ i, j });
 				visited[i][j] = 1;
 				world_cnt++;
@@ -54,7 +54,7 @@ int bfs() {
 				}
 			}
 
-			//¿¬ÇÕ ÀÎ±¸ ÀÌµ¿
+			//ì—°í•© ì¸êµ¬ ì´ë™
 			if (c.size() != 1) {
 				while (!c.empty()) {
 					//cout << c.front().y << " " << c.front().x << " " << population / world_cnt << "\n";
