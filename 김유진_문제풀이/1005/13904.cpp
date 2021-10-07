@@ -1,4 +1,4 @@
-//°úÁ¦
+//ê³¼ì œ
 
 #include <iostream>
 #include <vector>
@@ -26,7 +26,7 @@ int main() {
 		v.push_back({ w, d });
 	}
 
-	//Á¡¼ö·Î ³»¸²Â÷¼ø sort
+	//ì ìˆ˜ë¡œ sort
 	sort(v.begin(), v.end(), cmp);
 
 	for (int i = 0; i < v.size(); i++) {
