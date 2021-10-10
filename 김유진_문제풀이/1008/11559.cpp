@@ -1,4 +1,5 @@
-//�ѿ�ѿ�
+//뿌요뿌요
+
 #include <iostream>
 #include <vector>
 #include <stack>
