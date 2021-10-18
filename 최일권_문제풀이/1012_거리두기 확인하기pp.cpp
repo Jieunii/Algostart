@@ -43,10 +43,10 @@
 //		}
 //	}
 //
-//	if (flag)
-//		return 1;
-//	else
-//		return 0;
+/	if (visited[des_y][des_x]==r+1)
+		return 1;
+	else if(visited[des_y][des_x] == 0 || visited[des_y][des_x] > r+1)
+		return 0;
 //}
 //
 //int main() {
@@ -60,7 +60,7 @@
 //
 //	vector<int> answer;
 //	vector<Node> vec;
-//	// °¡´Â ±æ¿¡ X°¡ ÀÖÀ¸¸é ±¦Âú
+//	// Â°Â¡Â´Ã‚ Â±Ã¦Â¿Â¡ XÂ°Â¡ Ã€Ã–Ã€Â¸Â¸Ã© Â±Â¦Ã‚Ãº
 //	for (int i = 0; i < places.size(); i++) {
 //		vec.clear();
 //		for (int j = 0; j < places[i].size(); j++) {
