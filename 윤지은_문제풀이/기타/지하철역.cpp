@@ -10,11 +10,6 @@ vector<pair<int, int>> path(4);
 int checked[21];
 int maxi;
 
-bool cmp(pair<int, int> a, pair<int, int> b) {
-	if (a.first < b.first) return true;
-	return false;
-}
-
 void dfs(int lev, int start) {
 	if (lev == 4) {
 		// 양끝 연결 x
